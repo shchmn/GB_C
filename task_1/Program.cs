@@ -1,18 +1,14 @@
-﻿// Напишите программу, которая на вход принимает два числа и выдаёт, какое число большее, а какое меньшее.
+﻿// Напишите программу, которая принимает на вход трёхзначное число и на выходе показывает вторую цифру этого числа.
 
-int a;
-int b;
-System.Console.WriteLine("Введите первое целое число: ");
-string? str = Console.ReadLine();
-a = Convert.ToInt32(str);
-System.Console.WriteLine("Введите второе целое число: ");
-str = Console.ReadLine();
-b = Convert.ToInt32(str);
-if (a > b)
+int Number()
 {
-    System.Console.WriteLine("Большее число " + a);
+    System.Console.WriteLine("Введите трехзначное число: ");
+    int number = Convert.ToInt32(Console.ReadLine());
+    return number;
 }
-else
-{
-    System.Console.WriteLine("Большее число " + b);
-}
+
+int a = Number();
+int b = a / 10;
+int c = b % 10;
+
+System.Console.WriteLine($"Вторая цифра числа {a} - {c}");
