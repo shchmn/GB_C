@@ -1,15 +1,14 @@
-﻿// Напишите программу, которая на вход принимает число и выдаёт, является ли число чётным (делится ли оно на два без остатка).
+﻿// Напишите программу, которая принимает на вход число (N) и выдаёт таблицу кубов чисел от 1 до N.
 
-int a;
-System.Console.WriteLine("Введите целое число: ");
-string? str = Console.ReadLine();
-a = Convert.ToInt32(str);
-
-if (a % 2 == 0)
+int Number()
 {
-    System.Console.WriteLine("Число четное");
+    System.Console.WriteLine("Введите число: ");
+    int number = Convert.ToInt32(Console.ReadLine());
+    return number;
 }
-else
+
+int n = Number();
+for (int i = 1; i <= n; i++)
 {
-    System.Console.WriteLine("Число нечетное");
+    System.Console.WriteLine($"{i} ^ 3 = {Math.Pow(i, 3)}");
 }

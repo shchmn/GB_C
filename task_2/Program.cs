@@ -1,27 +1,20 @@
-﻿// Напишите программу, которая принимает на вход три числа и выдаёт максимальное из этих чисел.
+﻿// Напишите программу, которая принимает на вход координаты двух точек и находит расстояние между ними в 3D пространстве.
 
-int a;
-int b;
-int d;
-System.Console.WriteLine("Введите первое целое число: ");
-string? str = Console.ReadLine();
-a = Convert.ToInt32(str);
-System.Console.WriteLine("Введите второе целое число: ");
-str = Console.ReadLine();
-b = Convert.ToInt32(str);
-System.Console.WriteLine("Введите третье целое число: ");
-str = Console.ReadLine();
-d = Convert.ToInt32(str);
-if ((a > b) && (a > d))
+double Number()
 {
-    System.Console.WriteLine("Большее число " + a);
+    System.Console.Write("-->");
+    double number = Convert.ToInt32(Console.ReadLine());
+    return number;
 }
 
-else if ((b > a) && (b > d))
-{
-    System.Console.WriteLine("Большее число " + b);
-}
-else
-{
-    System.Console.WriteLine("Большее число " + d);
-}
+double xa = Number();
+double ya = Number();
+double za = Number();
+
+double xb = Number();
+double yb = Number();
+double zb = Number();
+
+double result = Math.Pow(Math.Pow(xb - xa, 2) + Math.Pow(yb - ya, 2) + Math.Pow(zb - za, 2), 0.5);
+
+System.Console.WriteLine(result);

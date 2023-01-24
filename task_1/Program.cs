@@ -1,18 +1,22 @@
-﻿// Напишите программу, которая на вход принимает два числа и выдаёт, какое число большее, а какое меньшее.
+﻿// Напишите программу, которая принимает на вход пятизначное число и проверяет, является ли оно палиндромом.
 
-int a;
-int b;
-System.Console.WriteLine("Введите первое целое число: ");
-string? str = Console.ReadLine();
-a = Convert.ToInt32(str);
-System.Console.WriteLine("Введите второе целое число: ");
-str = Console.ReadLine();
-b = Convert.ToInt32(str);
-if (a > b)
+int Number()
 {
-    System.Console.WriteLine("Большее число " + a);
+    System.Console.WriteLine("Введите пятизначное число: ");
+    int number = Convert.ToInt32(Console.ReadLine());
+    return number;
+}
+
+int a = Number();
+int first_num = a / 10000;
+int last_num = a % 10;
+int second_num = (a / 1000) % 10;
+int forth_num = (a / 10) % 10;
+if ((first_num == last_num) && (second_num == forth_num))
+{
+    System.Console.WriteLine($"Число {a} является палиндромом");
 }
 else
 {
-    System.Console.WriteLine("Большее число " + b);
+    System.Console.WriteLine($"Число {a} не является палиндромом");
 }
