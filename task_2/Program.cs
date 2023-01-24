@@ -1,27 +1,26 @@
-﻿// Напишите программу, которая принимает на вход три числа и выдаёт максимальное из этих чисел.
+﻿// Напишите программу, которая выводит третью цифру заданного числа или сообщает, что третьей цифры нет.
 
-int a;
-int b;
-int d;
-System.Console.WriteLine("Введите первое целое число: ");
-string? str = Console.ReadLine();
-a = Convert.ToInt32(str);
-System.Console.WriteLine("Введите второе целое число: ");
-str = Console.ReadLine();
-b = Convert.ToInt32(str);
-System.Console.WriteLine("Введите третье целое число: ");
-str = Console.ReadLine();
-d = Convert.ToInt32(str);
-if ((a > b) && (a > d))
+int Number()
 {
-    System.Console.WriteLine("Большее число " + a);
+    System.Console.WriteLine("Введите целое число: ");
+    int number = Convert.ToInt32(Console.ReadLine());
+    return number;
 }
 
-else if ((b > a) && (b > d))
+int a = Number();
+int b = a;
+if (a < 100)
 {
-    System.Console.WriteLine("Большее число " + b);
+    System.Console.WriteLine("Третьей цифры нет");
 }
 else
 {
-    System.Console.WriteLine("Большее число " + d);
+    while (a > 999)
+    {
+        a = a / 10;
+        System.Console.WriteLine(a);
+    }
+
+    int c = a % 10;
+    System.Console.WriteLine($"Третья цифра числа {b} - {c}");
 }
