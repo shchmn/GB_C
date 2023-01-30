@@ -1,14 +1,10 @@
-﻿// Напишите программу, которая принимает на вход число (N) и выдаёт таблицу кубов чисел от 1 до N.
+﻿// Напишите программу, которая задаёт массив из 8 элементов и выводит их на экран.
 
-int Number()
-{
-    System.Console.WriteLine("Введите число: ");
-    int number = Convert.ToInt32(Console.ReadLine());
-    return number;
-}
+int[] a = new int[8];
+Random rnd = new Random();
 
-int n = Number();
-for (int i = 1; i <= n; i++)
+for (int i = 0; i < 8; i++)
 {
-    System.Console.WriteLine($"{i} ^ 3 = {Math.Pow(i, 3)}");
+    a[i] = rnd.Next(100);
+    System.Console.Write($"{a[i]}; ");
 }

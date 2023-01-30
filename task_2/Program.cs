@@ -1,20 +1,12 @@
-﻿// Напишите программу, которая принимает на вход координаты двух точек и находит расстояние между ними в 3D пространстве.
+﻿// Напишите программу, которая принимает на вход число и выдаёт сумму цифр в числе.
 
-double Number()
+System.Console.WriteLine("Введите целое число: ");
+int number = Convert.ToInt32(Console.ReadLine());
+int count = 0;
+for (int i = 0; number != 0; i++)
 {
-    System.Console.Write("-->");
-    double number = Convert.ToInt32(Console.ReadLine());
-    return number;
+    count = count + (number % 10);
+    number = number / 10;
 }
 
-double xa = Number();
-double ya = Number();
-double za = Number();
-
-double xb = Number();
-double yb = Number();
-double zb = Number();
-
-double result = Math.Pow(Math.Pow(xb - xa, 2) + Math.Pow(yb - ya, 2) + Math.Pow(zb - za, 2), 0.5);
-
-System.Console.WriteLine(result);
+System.Console.WriteLine(count);
