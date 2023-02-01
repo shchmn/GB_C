@@ -1,13 +1,17 @@
-﻿// Напишите цикл, который принимает на вход два числа (A и B) и возводит число A в натуральную степень B.
+﻿// Задайте массив заполненный случайными положительными трёхзначными числами. 
+// Напишите программу, которая покажет количество чётных чисел в массиве.
 
-int Number()
+int[] a = new int[8];
+Random rnd = new Random();
+int count = 0;
+
+for (int i = 0; i < 8; i++)
 {
-    System.Console.WriteLine("Введите целое число: ");
-    int number = Convert.ToInt32(Console.ReadLine());
-    return number;
+    a[i] = rnd.Next(100, 1000);
+    System.Console.Write($"{a[i]}; ");
+    if (a[i] % 2 == 0)
+    {
+        count += 1;
+    }
 }
-
-int a = Number();
-int b = Number();
-System.Console.WriteLine($"{a} в степени {b} равно {Math.Pow(a, b)}");
-
+Console.WriteLine("\n" + $"В массиве четных чисел: {count}");

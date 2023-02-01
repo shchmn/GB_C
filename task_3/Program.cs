@@ -1,10 +1,18 @@
-﻿// Напишите программу, которая задаёт массив из 8 элементов и выводит их на экран.
+﻿// Задайте массив вещественных чисел. 
+// Найдите разницу между максимальным и минимальным элементом массива.
 
-int[] a = new int[8];
-Random rnd = new Random();
-
-for (int i = 0; i < 8; i++)
+System.Console.Write("Введите числа через пробел: ");
+string str = Console.ReadLine();
+var arr = str.Split();
+double[] a = new double[arr.Length];
+for (int i = 0; i < arr.Length; i++)
 {
-    a[i] = rnd.Next(100);
-    System.Console.Write($"{a[i]}; ");
+    a[i] = Convert.ToDouble(arr[i]);
 }
+
+foreach (var item in a)
+{
+    System.Console.Write(item + " ");
+}
+System.Console.WriteLine();
+System.Console.WriteLine($"Разница между максимальным и минимальным числом массива = {a.Max() - a.Min()}");
