@@ -1,17 +1,21 @@
-﻿// Задайте массив заполненный случайными положительными трёхзначными числами. 
-// Напишите программу, которая покажет количество чётных чисел в массиве.
+﻿// Пользователь вводит с клавиатуры M чисел. Посчитайте, сколько чисел больше 0 ввёл пользователь.
 
-int[] a = new int[8];
-Random rnd = new Random();
+System.Console.Write("Введите числа через пробел: ");
+string str = Console.ReadLine();
+var arr = str.Split();
+int[] a = new int[arr.Length];
 int count = 0;
 
-for (int i = 0; i < 8; i++)
+for (int i = 0; i < arr.Length; i++)
 {
-    a[i] = rnd.Next(100, 1000);
-    System.Console.Write($"{a[i]}; ");
-    if (a[i] % 2 == 0)
+    a[i] = Convert.ToInt32(arr[i]);
+}
+
+for (int i = 0; i < a.Length; i++)
+{
+    if (a[i] > 0)
     {
         count += 1;
     }
 }
-Console.WriteLine("\n" + $"В массиве четных чисел: {count}");
+Console.WriteLine("\n" + $"В массиве положительных чисел: {count}");
