@@ -1,18 +1,29 @@
-﻿// Задайте массив вещественных чисел. 
-// Найдите разницу между максимальным и минимальным элементом массива.
+﻿// Задайте двумерный массив из целых чисел. Найдите среднее арифметическое элементов в каждом столбце.
 
-System.Console.Write("Введите числа через пробел: ");
-string str = Console.ReadLine();
-var arr = str.Split();
-double[] a = new double[arr.Length];
-for (int i = 0; i < arr.Length; i++)
+int[,] arr = new int[3, 3];
+Random rnd = new Random();
+int count = 0;
+
+for (int i = 0; i < arr.GetLength(0); i++)
 {
-    a[i] = Convert.ToDouble(arr[i]);
+    for (int j = 0; j < arr.GetLength(1); j++)
+    {
+        arr[i, j] = rnd.Next(10);
+        System.Console.Write(arr[i, j] + "  ");
+        
+    }
+ 
+    System.Console.WriteLine();
+    
 }
 
-foreach (var item in a)
+for (int i = 0; i < arr.GetLength(0); i++)
 {
-    System.Console.Write(item + " ");
+    for (int j = 0; j < arr.GetLength(1); j++)
+    {
+        count += arr[j, i];
+    }
+ 
+    System.Console.Write(count + " ");
+    count = 0;
 }
-System.Console.WriteLine();
-System.Console.WriteLine($"Разница между максимальным и минимальным числом массива = {a.Max() - a.Min()}");

@@ -1,17 +1,20 @@
-﻿// Задайте массив заполненный случайными положительными трёхзначными числами. 
-// Напишите программу, которая покажет количество чётных чисел в массиве.
+﻿// Задайте двумерный массив размером m×n, заполненный случайными вещественными числами.
 
-int[] a = new int[8];
+System.Console.WriteLine("Введите количество строк: ");
+int m = Convert.ToInt32(Console.ReadLine());
+System.Console.WriteLine("Введите количество столбцов: ");
+int n = Convert.ToInt32(Console.ReadLine());
+
+double[,] arr = new double[m, n];
 Random rnd = new Random();
-int count = 0;
-
-for (int i = 0; i < 8; i++)
+System.Console.WriteLine(arr.Length);
+for (int i = 0; i < arr.GetLength(0); i++)
 {
-    a[i] = rnd.Next(100, 1000);
-    System.Console.Write($"{a[i]}; ");
-    if (a[i] % 2 == 0)
+    for (int j = 0; j < arr.GetLength(1); j++)
     {
-        count += 1;
+        arr[i, j] = Math.Round((rnd.NextDouble() * 100), 2);
+        System.Console.Write(arr[i, j] + " ");
     }
+    System.Console.WriteLine();
 }
-Console.WriteLine("\n" + $"В массиве четных чисел: {count}");
+
