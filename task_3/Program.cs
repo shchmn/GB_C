@@ -1,6 +1,6 @@
 ﻿// Задайте двумерный массив из целых чисел. Найдите среднее арифметическое элементов в каждом столбце.
 
-int[,] arr = new int[3, 3];
+int[,] arr = new int[4, 4];
 Random rnd = new Random();
 int count = 0;
 
@@ -23,7 +23,7 @@ for (int i = 0; i < arr.GetLength(0); i++)
     {
         count += arr[j, i];
     }
- 
-    System.Console.Write(count + " ");
+    double m = count / 4;
+    System.Console.Write(Math.Round(m, 2) + " ");
     count = 0;
 }
