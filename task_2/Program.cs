@@ -1,21 +1,23 @@
-﻿// Напишите программу, которая на вход принимает позиции элемента в двумерном массиве, 
-// и возвращает значение этого элемента или же указание, что такого элемента нет
+﻿// Задайте прямоугольный двумерный массив. 
+// Напишите программу, которая будет находить строку с наименьшей суммой элементов.
 
-System.Console.WriteLine("Введите номер строки: ");
-int m = (Convert.ToInt32(Console.ReadLine())) - 1;
-System.Console.WriteLine("Введите номер столбца: ");
-int n = (Convert.ToInt32(Console.ReadLine())) - 1;
-System.Console.WriteLine();
+System.Console.WriteLine("Введите количество строк: ");
+int m = Convert.ToInt32(Console.ReadLine());
+System.Console.WriteLine("Введите количество столбцов (больше или меньше количества строк): ");
+int n = Convert.ToInt32(Console.ReadLine());
 
-int[,] arr = new int[5, 6];
+int[,] arr = new int[m, n];
 Random rnd = new Random();
+int minsum = 1;
 int count = 0;
+int str = 0;
 for (int i = 0; i < arr.GetLength(0); i++)
 {
     for (int j = 0; j < arr.GetLength(1); j++)
     {
         arr[i, j] = rnd.Next(100);
         System.Console.Write(arr[i, j] + " ");
+        minsum += arr[i, j];
     }
     System.Console.WriteLine();  
 }
@@ -24,19 +26,14 @@ for (int i = 0; i < arr.GetLength(0); i++)
 {
     for (int j = 0; j < arr.GetLength(1); j++)
     {
-        if ((i == m) && (j == n))
-            {
-                count += 1;
-            }        
+        count += arr[i, j];
     }
+    if (count < minsum)
+    {
+        minsum = count;
+        str +=1;
+    }
+    count = 0;
 }
 System.Console.WriteLine();
-if (count == 1)
-{
-    System.Console.WriteLine($"В данном массиве на позиции ({m + 1},{n + 1}) стоит число {arr[m, n]}");
-}
-else
-{
-    System.Console.WriteLine($"Числа с позицией ({m + 1},{n + 1}) в данном массиве нет");
-}
-    
+System.Console.WriteLine($"Минимальная сумма элементов {minsum} в строке {str}");
