@@ -1,39 +1,17 @@
-﻿// Задайте прямоугольный двумерный массив. 
-// Напишите программу, которая будет находить строку с наименьшей суммой элементов.
+﻿// Задайте значения M и N. 
+// Напишите программу, которая найдёт сумму натуральных элементов в промежутке от M до N.
 
-System.Console.WriteLine("Введите количество строк: ");
+System.Console.WriteLine("Введите первое целое число: ");
 int m = Convert.ToInt32(Console.ReadLine());
-System.Console.WriteLine("Введите количество столбцов (больше или меньше количества строк): ");
+System.Console.WriteLine("Введите второе целое число: ");
 int n = Convert.ToInt32(Console.ReadLine());
-
-int[,] arr = new int[m, n];
-Random rnd = new Random();
-int minsum = 1;
 int count = 0;
-int str = 0;
-for (int i = 0; i < arr.GetLength(0); i++)
-{
-    for (int j = 0; j < arr.GetLength(1); j++)
-    {
-        arr[i, j] = rnd.Next(100);
-        System.Console.Write(arr[i, j] + " ");
-        minsum += arr[i, j];
-    }
-    System.Console.WriteLine();  
-}
 
-for (int i = 0; i < arr.GetLength(0); i++)
+Func(n, m);
+void Func(int n, int m)
 {
-    for (int j = 0; j < arr.GetLength(1); j++)
-    {
-        count += arr[i, j];
-    }
-    if (count < minsum)
-    {
-        minsum = count;
-        str +=1;
-    }
-    count = 0;
+    if (m > n) return;
+    else count += m;
+    Func(n, m + 1);
 }
-System.Console.WriteLine();
-System.Console.WriteLine($"Минимальная сумма элементов {minsum} в строке {str}");
+System.Console.WriteLine($"Сумма натуральных чисел от {m} до {n} = {count}");

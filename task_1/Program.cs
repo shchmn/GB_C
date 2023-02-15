@@ -1,35 +1,12 @@
-﻿// Задайте двумерный массив. 
-// Напишите программу, которая упорядочит по убыванию элементы каждой строки двумерного массива.
+﻿// Задайте значение N. 
+// Напишите программу, которая выведет все натуральные числа в промежутке от N до 1. Выполнить с помощью рекурсии.
 
-System.Console.WriteLine("Введите количество строк: ");
-int m = Convert.ToInt32(Console.ReadLine());
-System.Console.WriteLine("Введите количество столбцов: ");
+System.Console.WriteLine("Введите целое число: ");
 int n = Convert.ToInt32(Console.ReadLine());
 
-int[,] arr = new int[m, n];
-Random rnd = new Random();
-for (int i = 0; i < arr.GetLength(0); i++)
+string Func(int n)
 {
-    for (int j = 0; j < arr.GetLength(1); j++)
-    {
-        arr[i, j] = rnd.Next(100);
-        System.Console.Write(arr[i, j] + " ");
-    }
-    System.Console.WriteLine();
+    if (n == 0) return "";
+    else return $"{n} " + Func(n - 1);
 }
-System.Console.WriteLine();
-int[] newarr = new int[n];
-for (int i = 0; i < arr.GetLength(0); i++)
-{
-    for (int j = 0; j < arr.GetLength(1); j++)
-    {
-        newarr[j] = arr[i, j];
-    }
-    Array.Sort(newarr);
-    Array.Reverse(newarr);
-    foreach (int k in newarr)
-    {
-        System.Console.Write(k + " ");
-    }
-    System.Console.WriteLine();
-}
+System.Console.WriteLine(Func(n));
